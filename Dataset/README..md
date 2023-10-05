@@ -4,7 +4,7 @@ Este conjunto de datos proporciona información sobre varios atributos relaciona
 
 - **Marital status (Estado civil):** El estado civil del estudiante. (Categórico)
 - **Application mode (Modo de solicitud):** El método de solicitud utilizado por el estudiante. (Categórico)
-- **Application order (Orden de solicitud):** El orden en el que el estudiante presentó su solicitud. (Numérico)
+- **Application order (Orden de solicitud):** El orden en el que el estudiante presentó su solicitud. (Numérico) (between 0 - first choice; and 9 last choice)
 - **Course (Curso):** El curso elegido por el estudiante. (Categórico)
 - **Daytime/evening attendance (Asistencia diurna/nocturna):** Si el estudiante asiste a clases durante el día o por la noche. (Categórico)
 - **Previous qualification (Calificación previa):** La calificación obtenida por el estudiante antes de inscribirse en la educación superior. (Categórico)
