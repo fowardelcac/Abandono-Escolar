@@ -6,7 +6,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import accuracy_score, precision_score
 
-from xgboost import XGBClassifier
+from sklearn.ensemble import RandomForestClassifier
 
 carreras = {
     "Tecnologías de Producción de Biocombustibles": 'Course_1',
@@ -50,10 +50,7 @@ def modelo_rf(data):
     colum_s= ['Age at enrollment', 'Tasa_1st', 'Tasa_2nd']
     data[colum_s] = scaler.fit_transform(data[colum_s])
     X_train, X_test, y_train, y_test = split(data)
-    modelo = XGBClassifier().fit(X_train, y_train)   
-    y_pred = modelo.predict(X_test)
-
-    print(metricas(y_test, y_pred))
+    modelo = RandomForestClassifier().fit(X_train, y_train)   
     return scaler, modelo
 
 df_course = pd.read_csv('https://raw.githubusercontent.com/fowardelcac/Abandono-Escolar/main/Dataset/dataset.csv')
@@ -63,7 +60,6 @@ df = data.filter(['Gender','scholarship', 'Target',  'Age at enrollment', 'Tasa_
 df['Course'] = df_course.Course
 df = df[df.Target != 2].copy()
 df = pd.get_dummies(df, columns = ['Course'])
-st.write('sssssssss')
 scaler, modelo = modelo_rf(df)
 
 # Sexo
