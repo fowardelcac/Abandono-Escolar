@@ -62,6 +62,7 @@ df = df[df.Target != 2].copy()
 df = pd.get_dummies(df, columns = ['Course'])
 scaler, modelo = modelo_rf(df)
 
+st.title('Modelo de ML para predecir el abandono escolar')
 # Sexo
 sexo = st.radio('Seleccionar el sexo:', ['Mujer', 'Hombre'])
 genero = 0 if sexo == 'Mujer' else 1
@@ -110,7 +111,7 @@ input_data[colum_s] = scaler.transform(input_data[colum_s])
 y_pred = modelo.predict(input_data)
 
 # Muestra el resultado de la predicción
-if y_pred[0] == 1:
+if y_pred[0] == 0:
     st.write('El modelo predice que el estudiante tiene un alto riesgo de abandono.')
 else:
     st.write('El modelo predice que el estudiante tiene un bajo riesgo de abandono.')
